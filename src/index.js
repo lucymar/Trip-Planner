@@ -1,6 +1,7 @@
 // console.log('js file working')
 
 const mapboxgl = require('mapbox-gl');
+const markerBuilder = require('./marker');
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoiY2hhc3VsaW4iLCJhIjoiY2p0NGowbnhpMDN3ajQ0bnlqaDFneTFudyJ9.XUIdLzAvJ2OQGVyogp8v4A';
@@ -15,6 +16,10 @@ const map = new mapboxgl.Map({
 const detatchedElement = document.createElement('div');
 detatchedElement.style.width = '32px';
 detatchedElement.style.height = '40px';
-markerDomEl.style.backgroundImage = 'url(http://i.imgur.com/WbMOfMl.png)';
+detatchedElement.style.backgroundImage = 'url(http://i.imgur.com/WbMOfMl.png)';
 
 new mapboxgl.Marker(detatchedElement).setLngLat([-74.009, 40.705]).addTo(map);
+
+const newMarker = markerBuilder('hotel', [-73.9857151, 40.784086]);
+
+module.exports = map;
